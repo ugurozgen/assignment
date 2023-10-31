@@ -10,7 +10,7 @@ func TestCalculatePacksFunction(t *testing.T) {
 		expectedPacks map[int]int
 	}{
 		{500, map[int]int{5000: 0, 2000: 0, 1000: 0, 500: 1, 250: 0}},
-		{501, map[int]int{5000: 0, 2000: 0, 1000: 0, 500: 1, 250: 0}},
+		{501, map[int]int{5000: 0, 2000: 0, 1000: 0, 500: 1, 250: 1}},
 		{251, map[int]int{5000: 0, 2000: 0, 1000: 0, 500: 1, 250: 0}},
 		{12001, map[int]int{5000: 2, 2000: 1, 1000: 0, 500: 0, 250: 1}},
 		{1, map[int]int{5000: 0, 2000: 0, 1000: 0, 500: 0, 250: 1}},
@@ -18,7 +18,7 @@ func TestCalculatePacksFunction(t *testing.T) {
 	}
 
 	for _, testCase := range testCases {
-		result := calculatePacks(testCase.orderItems)
+		result, _ := calculatePacks(testCase.orderItems)
 		equal(result, testCase.expectedPacks)
 	}
 }
