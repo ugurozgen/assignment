@@ -26,13 +26,16 @@ func calculatePacksRec(itemCount int, packs map[int]int, packIndex int) {
 	if packageCount > 0 {
 		packs[packageSize] = packageCount
 		itemCount %= packageSize
+		if itemCount == 0 {
+			return
+		}
 	}
 
 	if itemCount < packSizes[0] {
 		packs[packSizes[0]] = 1
 		return
 	}
-	
+
 	rightDistance := math.Abs(float64(itemCount) - float64(packageSize))
 	packIndex -= 1
 	leftDistance := math.Abs(float64(itemCount) - float64(packSizes[packIndex]))

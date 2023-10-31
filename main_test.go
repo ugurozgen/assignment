@@ -9,6 +9,7 @@ func TestCalculatePacksFunction(t *testing.T) {
 		orderItems    int
 		expectedPacks map[int]int
 	}{
+		{500, map[int]int{5000: 0, 2000: 0, 1000: 0, 500: 1, 250: 0}},
 		{501, map[int]int{5000: 0, 2000: 0, 1000: 0, 500: 1, 250: 0}},
 		{251, map[int]int{5000: 0, 2000: 0, 1000: 0, 500: 1, 250: 0}},
 		{12001, map[int]int{5000: 2, 2000: 1, 1000: 0, 500: 0, 250: 1}},
